@@ -1,3 +1,11 @@
+# VS Code Portfolio
+
+A personal portfolio website with the theme of Visual Studio Code
+
+<img src="https://github.com/Paink64/Images/blob/main/VS-Portfolio/Home.jpg" width=40%>
+
+[Live Page](https://jrcs.me/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

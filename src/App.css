@@ -1,38 +1,699 @@
-.App {
+html, body {
+  margin: 0;
+  height: 100%;
+  color: #FFFFFF;
+  overflow: hidden;
+  font-family: 'Source Sans Pro', sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+p{
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+a { 
+  text-decoration: none; 
+  color: #FFFFFF;
+}
+
+.Icon{
+  display: block;
+  margin: auto 0px auto 0px
+}
+
+.Layout {
+height: 100vh;
+height: calc(var(--vh, 1vh) * 100);
+width: 100vw;
+display: flex;
+flex-direction: column;
+align-content: stretch;
+}
+
+.MidSection {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.RightBar{
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+
+main{
+  display: table;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.MidSection div:nth-child(1),
+.MidSection  div:nth-child(2),
+.Layout header,
+.Layout footer{
+  flex: 0 1 auto;
+}
+
+.MidSection  div:nth-child(3) {
+  flex: 1 1 auto;
+}
+
+.TitleBar {
+  position: relative;
+  background-color: #323234;
+  height: 30px;
+  color: #B1B1B1;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.TitleBar .Icon{
+  height: 100%;
+  display: flex;
+  margin: auto;
+  padding-left: 10px;
+}
+
+.TitleBar img{
+  margin: auto;
+  height: 20px;
+}
+
+.TitleBar .Items {
+  flex: 1;
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.TitleBar .Items p{
+  padding: 5px 5px;
+}
+
+.TitleBar .Items p:hover {
+  border-radius: 5px;
+  background-color: #3F4040;
+  color: #CCCCCC;
+}
+
+.TitleBar .Title {
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.TitleBar .Items > * {
+  padding: 0 0.5rem;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.TitleBar .WindowButtons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height:100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.TitleBar .WindowButtons * {
+  height:100%;
+  width: 16px;
+  cursor: pointer;
+}
+
+.TitleBar .WindowButtons *:hover{
+  background-color: #3F4040;
+  color: #CCCCCC;
+}
+
+.TitleBar .WindowButtons *:nth-child(3):hover{
+  color: #CCCCCC;
+  background: #DB1E25;
+}
+
+.TitleBar .MinWindow{
+  margin-left: auto;
+}
+
+.TitleBar .MaxWindow, 
+.TitleBar .CloseWindow,
+.TitleBar .MinWindow
+{
+  padding: 0px 15px;
+}
+
+.Sidebar {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 48px;
+  height: 100%;
+  align-self: stretch;
+  background-color: #333333;
+  color: #868686;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.Sidebar .Icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 100%;
+  padding: 12px 0px;
+  color: #868686;
+}
+
+.Sidebar .Icon.active{
+  color: #FFFFFF;
+  border-left: #FFFFFF solid 1px;
+}
+
+.ExploreBar {
+  width: 250px;
+  height: 100%;
+  background-color: #252527;
+}
+
+.ExploreBar .Title{
+  margin-left: 21px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11px;
+}
+
+.ExploreBar .Item:hover:not(.active),
+.ExploreBar .checkbox2 label:hover{
+  background-color: #2A2D2E;
+}
+
+.ExploreBar label{
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  width: 100%;
+  height: 25px;
+}
+
+.ExploreBar label:not(.checkbox2 label){
+ border-top: #474747 solid 1px;
+}
+
+.ExploreBar label svg{
+  flex: 0 1 auto;
+  height: 15px;
+  width: 15px;
+  margin: auto 0px;
+}
+
+.ExploreBar label span{
+  flex: 0 1 auto;
+  margin: auto 0px;
+}
+
+.ExploreBar i{
+padding: 10px;
+}
+
+.ExploreBar .Items{
+  display: flex;
   align-items: center;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.ExploreBar .Item{
+  display: flex;
+  width: 100%;
+}
+
+.ExploreBar .Item p{
+  padding: 0.2rem 0rem;
+}
+
+.ExploreBar .active{
+  background-color: #38373D;
+}
+
+.ExploreBar .checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.ExploreBar label {
+  margin-left: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.TabsBar {
+  display: flex;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #252527;
+  height: 35px;
+  color: #FFFFFF;
+}
+
+.TabsBar .Tab {
+  display: flex;
+  height: 100%;
+  padding: 0px 10px 0px 10px;
+}
+
+.TabsBar .Tab p{
+  padding: 0px 10px 0px 10px;
+  margin: auto;
+}
+
+.TabsBar .active { 
+  background-color: #1e1e1e;
+}
+
+.Tab .Icon:nth-child(3){ 
+  visibility: hidden;
+}
+
+.Tab:hover .Icon:nth-child(3),
+.TabsBar .active .Icon{ 
+  visibility: visible;
+}
+
+.Tab {
+  pointer-events: none;
+}
+.Tab:not(.Icon) {
+  pointer-events: initial;
+}
+
+.StatusBar {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #007ACD;
+  height: 22px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+}
+.StatusBar .BarSection{
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  font-size: 12px;
+}
+
+.StatusBar div{
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.StatusBar .item{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  size: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.StatusBar .item p{
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.StatusBar .item:hover{
+  background-color: #1F89D1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.StatusBar .BarSectionLeft .item:nth-child(1){
+  display: flex;
+  background-color: #16825D;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.StatusBar .BarSectionLeft .item:nth-child(1):hover{
+  background-color: #329171;
+}
+
+.StatusBar .Icon{
+  height: 14px;
+  width: 14px;
+}
+
+.tooltip {
+  position:relative;
+}
+
+.tooltip .top, .tooltip .right {
+  white-space: nowrap;
+  top:-10px;
+  left:50%;
+  transform:translate(-50%, -100%);
+  color:#CCCCCC;
+  background-color:#252526;
+  position:absolute;
+  z-index:99999999;
+  border:1px solid #454545;
+  display:none;
+}
+
+.BarSectionLeft .item:nth-child(1).tooltip .top {
+  transform:translate(-10%, -100%);
+}
+.BarSectionRight .item:nth-child(8).tooltip .top {
+  transform:translate(-65%, -100%);
+}
+.BarSectionRight .item:nth-child(9).tooltip .top {
+  transform:translate(-90%, -100%);
+}
+
+.tooltip .top p, .tooltip .right p{
+  margin: 5px 5px ;
+  font-size: 12px;
+}
+
+.tooltip:hover .top, .tooltip:hover .right{ 
+  display:block;
+}
+
+.tooltip .top i {
+  position:absolute;
+  top:100%;
+  left:50%;
+  margin-left:-12px;
+  width:24px;
+  height:12px;
+  overflow:hidden;
+}
+
+.BarSectionLeft .item:nth-child(1).tooltip .top i {
+  left:10%;
+}
+.BarSectionRight .item:nth-child(8).tooltip .top i {
+  left:60%;
+}
+.BarSectionRight .item:nth-child(9).tooltip .top i {
+  left:90%;
+}
+
+.tooltip .top i::after {
+  content:'';
+  position:absolute;
+  width:6px;
+  height:6px;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(45deg);
+  background-color:#252526;
+  border:1px solid #454545;
+}
+
+.tooltip .right {
+  top:50%;
+  left:100%;
+  transform:translate(5%, -50%);
+}
+
+.tooltip .right i {
+  position:absolute;
+  top:50%;
+  right:100%;
+  margin-top:-12px;
+  width:12px;
+  height:24px;
+  overflow:hidden;
+}
+
+.tooltip .right i::after {
+  content:'';
+  position:absolute;
+  width:12px;
+  height:12px;
+  left:0;
+  top:50%;
+  transform:translate(50%,-50%) rotate(-45deg);
+  background-color:#252526;
+  border:1px solid #454545;
+}
+
+.DirBar{
+  display: flex;
+  height: 22px;
+  box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+  font-size: 14px;
+  padding-left: 15px;
+  color: #A9A9A9;;
+}
+
+.DirBar p{
+  margin: auto 0px;
+}
+
+.DirBar *{
+  padding: 0px 1px;
+}
+
+.Home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.Home div{
+  display: flex;
+}
+
+.Home .Icon{
+  margin: 0px;
+  height: 150px;
+}
+
+.Home .Name{
+  font-size: 100px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.Home .Bio{
+  font-size: 50px;
+  overflow: hidden;
+  border-right: .15em solid #FFFFFF;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: 
+    typing 3s steps(50, end),
+    blink-caret .75s step-end infinite;
+}
+
+.Projects {
+  height: 100%;
+  color: #FFFFFF;
+}
+
+.About, 
+.Contact,
+.Projects {
+  counter-reset: line;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  align-self: flex-start;
+  padding-left: 20px;
+  color: #858585;
+  height: 100%;
+}
+
+.Contact  {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.About .Line {
+  display: flex;
+}
+
+.About .Tag{
+  color: #1E50B3;
+}
+
+.About .Attribute, .Projects  .Attribute{
+  color: #9CDCFE;
+}
+
+.About .Text{
+  color: #FFFFFF;
+}
+
+.About .Value, .Projects .Value, .Contact  a{
+  color: #CE9178;
+}
+
+.Projects .Bracket{
+  color: #DBD70A;
+}
+.Projects .Depen{
+  color: #DA5781;
+}
+.Contact  .Title{
+  color: #D7BA7D;
+}
+
+.Contact  .Name{
+  color: #9CDCFE;
+}
+
+.Contact  .Bracket{
+  color: #FFB517;
+}
+
+.About i, .Contact i , .Projects i{
+  height: 100%;
+  padding: 6px 0px 6px 15px;
+  border-left: #858585 solid 1px;
+}
+
+.Line::before, .About p::before {
+  position: relative;
+  left: 0px;
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 50px; 
+  margin-right: auto;
+  color: #858585;
+}
+
+.Page{
+  
+  overflow: scroll;
+}
+
+@media screen and (max-width: 1300px) {
+  .Home .Icon{
+    height: 100px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .Home .Name{
+    font-size: 66px;
   }
+  
+  .Home .Bio{
+    font-size: 33px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .TitleBar .Items, .TitleBar .WindowButtons{
+    display: none;
+  }
+
+  .Home .Icon{
+    height: 75px;
+  }
+  
+  .Home .Name{
+    font-size: 50px;
+  }
+  
+  .Home .Bio{
+    font-size: 25px;
+  }
+
+  .ExploreBar {
+    width: 170px;
+  }
+
+}
+
+
+@media screen and (max-width: 750px) {
+  .BarSectionRight div.item {
+    display: none;
+  }
+
+  .Home .Icon{
+    height: 50px;
+  }
+  
+  .Home .Name{
+    font-size: 33px;
+  }
+  
+  .Home .Bio{
+    font-size: 16px;
+  }
+  
+  .Contact {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .Projects {
+    font-size: .8rem;
+    line-height: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 725px) {
+
+  .TabsBar{
+    display: none;
+  }
+  .About{
+    font-size: .7rem;
+    line-height: 1.2rem;
+  }
+
+}
+
+@media screen and (max-width: 580px) {
+
+  .About {
+    font-size: .5rem;
+    line-height: 1rem;
+  }
+
+  .Contact {
+    font-size: .8rem;
+    line-height: 1.6rem;
+  }
+
+  .Projects {
+    font-size: .7rem;
+    line-height: 1.3rem;
+  }
+
+}
+
+@media screen and (max-width: 300px) {
+  .TitleBar {
+    font-size: .74rem;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #FFFFFF; }
+}
+::-webkit-scrollbar {
+  display: none;
 }
