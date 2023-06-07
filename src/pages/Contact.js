@@ -26,11 +26,11 @@ export default function Contact() {
   const [Tabs, setTabs] = useOutletContext();
   const name = 'contact.css'
     return (
-      <div className="Contact" style={Tabs?.includes(name) ? {} : { display: 'none' }}>
+      <div className="Contact Page" style={Tabs?.includes(name) ? {} : { display: 'none' }}>
         <p className="Line"><span className="Title">.Contact .Me</span> <span className="Bracket">&#123;</span></p>
         {contactItems.map(({name, link, href}) => (
-          <div>
-            <p className='Line' key={name}>
+          <div key={name}>
+            <p className='Line'>
             <i/><span className="Name">{name}</span>:{' '}
               <a href={href} target="_blank" rel="noopener">
                 {link}

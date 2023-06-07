@@ -2,19 +2,24 @@ import { useOutletContext } from "react-router-dom"
 const ProjectItems = [
   {
     name: 'Visualizer',
-    description: 'Visualization of multiple algorithms. Which are used for multiple applications such as path finding and sorting.',
+    description: ['"C++ program using Dear ImGui for UI, with algorithms for',
+    'the Nth Queen and Sudoku solvers, and pathfinding and',
+    'sorting programs, with real-time graphical interface."'],
     dependencies: ['C++', 'Dear Imgui'],
     href: 'https://github.com/Paink64/Visualizer',
   },
   {
     name: 'Pipeline',
-    description: 'RISC-V Computer Architecture',
+    description: ['"RISC-V Computer Architecture created and simulated on',
+    'Vivado"'],
     dependencies: ['SystemVerilog'],
     href: 'https://github.com/Paink64/Pipeline',
   },
   {
     name: 'Visual Studios Website',
-    description: 'This current website',
+    description: ['"React-based personal website resembling Visual Studio',
+    'Code, with clean design and syntax highlighting, sidebar',
+    'navigation, optimized for fast loading and responsive','user experience."'],
     dependencies: ['JavaScript', 'React'],
     href: 'https://github.com/Paink64',
   },
@@ -32,15 +37,23 @@ export default function Projects() {
             <i/><span className="Attribute">"name"</span>: <span className="Value">"{name}"</span>,
             </p>
             <p className='Line'>
-            <i/><span className="Attribute">"description"</span>: <span className="Value">"{description}"</span>,
+            <i/><span className="Attribute">"description"</span>:
             </p>
 
+
+            {description.map((item) => (
+              <div key={item}>
+                <p className='Line'>
+                  <i/><i/><span className="Value">{item}</span>,
+                </p>
+              </div>
+            ))}
             <p className="Line"><i/><span className="Attribute">"dependencies" </span><span className="Depen">&#123;</span></p>
 
             {dependencies.map((item) => (
               <div key={item}>
                 <p className='Line'>
-                  <i/><i/><span className="Attribute">"{item}"</span>,
+                <i/><i/><i/><span className="Value">"{item}"</span>,
                 </p>
               </div>
             ))}
