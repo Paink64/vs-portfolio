@@ -4,7 +4,7 @@ A personal portfolio website with the theme of Visual Studio Code
 
 <img src="https://github.com/Paink64/Images/blob/main/VS-Portfolio/Home.jpg" width=100%>
 
-[Live Page](https://jrcs.me/)
+[Live Demo](https://vs-portfolio-demo.netlify.app/)
 
 # Getting Started with Create React App
 
