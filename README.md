@@ -2,7 +2,7 @@
 
 A personal portfolio website with the theme of Visual Studio Code
 
-<img src="https://github.com/Paink64/Images/blob/main/VS-Portfolio/Home.jpg" width=40%>
+<img src="https://github.com/Paink64/Images/blob/main/VS-Portfolio/Home.jpg" width=100%>
 
 [Live Page](https://jrcs.me/)
 
